@@ -216,6 +216,7 @@ public class NumberListImpl implements NumberList {
      *
      * @return string representation in <b>decimal</b> scale.
      */
+
     public String toDecimalString() {
         BigInteger value = toBigInteger();
         return value.toString();
@@ -561,9 +562,7 @@ public class NumberListImpl implements NumberList {
     @Override
     public boolean retainAll(Collection<?> c) {
         boolean modified = false;
-        Iterator<Byte> it = iterator();
-        while (it.hasNext()) {
-            Byte b = it.next();
+        for (Byte b : this) {
             if (!c.contains(b)) {
                 remove(b);
                 modified = true;
